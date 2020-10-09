@@ -100,6 +100,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
+@dinosaurawr/ngx-graph
+MIT
+
 @rigor789/remark-autolink-headings
 MIT
 Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
@@ -205,9 +208,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-
-@swimlane/ngx-graph
-MIT
 
 @ungap/global-this
 ISC
