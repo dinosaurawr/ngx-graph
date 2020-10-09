@@ -349,8 +349,8 @@ export class GraphComponent extends BaseChartComponent implements OnInit, OnChan
         n.meta.forceDimensions = n.meta.forceDimensions === undefined ? true : n.meta.forceDimensions;
       }
       n.position = {
-        x: 0,
-        y: 0
+        x: n.position.x ?? 0,
+        y: n.position.y ?? 0
       };
       n.data = n.data ? n.data : {};
       return n;
