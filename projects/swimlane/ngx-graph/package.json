@@ -1,6 +1,6 @@
 {
   "name": "@dinosaurawr/ngx-graph",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Fixed Graph visualization for angular (powered by @swimlane/ngx-graph)",
   "repository": {
     "type": "git",
