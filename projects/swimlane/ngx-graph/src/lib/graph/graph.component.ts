@@ -105,6 +105,7 @@ export class GraphComponent extends BaseChartComponent implements OnInit, OnChan
   @Output() deactivate: EventEmitter<any> = new EventEmitter();
   @Output() zoomChange: EventEmitter<number> = new EventEmitter();
   @Output() clickHandler: EventEmitter<MouseEvent> = new EventEmitter();
+  @Output() graphClick: EventEmitter<MouseEvent> = new EventEmitter();
 
   @ContentChild('linkTemplate') linkTemplate: TemplateRef<any>;
   @ContentChild('nodeTemplate') nodeTemplate: TemplateRef<any>;
@@ -895,8 +896,9 @@ export class GraphComponent extends BaseChartComponent implements OnInit, OnChan
    *
    * @memberOf GraphComponent
    */
-  onClick(event: any): void {
-    this.select.emit(event);
+  onClick(event: MouseEvent, node: Node): void {
+    event.stopPropagation();
+    this.select.emit({ event, node });
   }
 
   /**
@@ -1002,11 +1004,6 @@ export class GraphComponent extends BaseChartComponent implements OnInit, OnChan
     this.isMouseMoveCalled = false;
   }
 
-  @HostListener('document:click', ['$event'])
-  graphClick(event: MouseEvent): void {
-    if (!this.isMouseMoveCalled) this.clickHandler.emit(event);
-  }
-
   /**
    * On touch start event to enable panning.
    *
@@ -1017,6 +1014,10 @@ export class GraphComponent extends BaseChartComponent implements OnInit, OnChan
     this._touchLastY = event.changedTouches[0].clientY;
 
     this.isPanning = true;
+  }
+
+  onGraphClick(event: MouseEvent): void {
+    this.graphClick.emit(event);
   }
 
   /**

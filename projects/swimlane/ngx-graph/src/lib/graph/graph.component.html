@@ -2,7 +2,6 @@
   [view]="[width, height]"
   [showLegend]="legend"
   [legendOptions]="legendOptions"
-  (legendLabelClick)="onClick($event)"
   (legendLabelActivate)="onActivate($event)"
   (legendLabelDeactivate)="onDeactivate($event)"
   mouseWheel
@@ -14,6 +13,7 @@
     [attr.transform]="transform"
     (touchstart)="onTouchStart($event)"
     (touchend)="onTouchEnd($event)"
+    (click)="onGraphClick($event)"
     class="graph chart"
   >
     <defs>
@@ -44,7 +44,7 @@
         [class.old-node]="animate && oldClusters.has(node.id)"
         [id]="node.id"
         [attr.transform]="node.transform"
-        (click)="onClick(node)"
+        (click)="onClick($event, node)"
       >
         <ng-container
           *ngIf="clusterTemplate"
@@ -83,7 +83,7 @@
         [class.old-node]="animate && oldNodes.has(node.id)"
         [id]="node.id"
         [attr.transform]="node.transform"
-        (click)="onClick(node)"
+        (click)="onClick($event, node)"
         (mousedown)="onNodeMouseDown($event, node)"
       >
         <ng-container
